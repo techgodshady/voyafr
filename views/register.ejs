@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="zZ6ySTpmvoMnZdvsJq1O1G50dEuo6I3NysaYnzKg">
+
+    <title>Register | Voya Wealth Management</title>
+
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.bunny.net/css24961.css?family=Nunito:wght@400;600;700&amp;display=swap">
+
+    <!-- Scripts -->
+    <link rel="preload" as="style" href="/assets/css/auth-e6a631a1.css"/>
+    <link rel="modulepreload" href="/assets/js/auth-83ce8ed7.js" />
+    <link rel="stylesheet" href="/assets/css/auth-e6a631a1.css" />
+    <script type="module" src="/assets/js/auth-83ce8ed7.js"></script>
+</head>
+
+<body class="font-gilroy antialiased">
+    <div class="preloader" id="preloader">
+        <div class="gooey">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <div x-data="{&quot;show&quot;:true,&quot;style&quot;:&quot;success&quot;,&quot;message&quot;:null}"
+        :class="{ 'bg-indigo-500': style == 'success', 'bg-red-700': style == 'danger', 'bg-gray-500': style != 'success' && style != 'danger' }"
+        style="display: none;" x-show="show && message" x-init="
+                document.addEventListener('banner-message', event => {
+                    style = event.detail.style;
+                    message = event.detail.message;
+                    show = true;
+                });
+            ">
+        <div class="max-w-screen-xl mx-auto py-2 px-3 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between flex-wrap">
+                <div class="w-0 flex-1 flex items-center min-w-0">
+                    <span class="flex p-2 rounded-lg"
+                        :class="{ 'bg-indigo-600': style == 'success', 'bg-red-600': style == 'danger' }">
+                        <svg x-show="style == 'success'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <svg x-show="style == 'danger'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <svg x-show="style != 'success' && style != 'danger'" class="h-5 w-5 text-white"
+                            xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </span>
+
+                    <p class="ml-3 font-medium text-sm text-white truncate" x-text="message"></p>
+                </div>
+
+                <div class="shrink-0 sm:ml-3">
+                    <button type="button" class="-mr-1 flex p-2 rounded-md focus:outline-none sm:-mr-2 transition"
+                        :class="{ 'hover:bg-indigo-600 focus:bg-indigo-600': style == 'success', 'hover:bg-red-600 focus:bg-red-600': style == 'danger' }"
+                        aria-label="Dismiss" x-on:click="show = false">
+                        <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="min-h-screen overflow-hidden bg-gray-100">
+        <main>
+            <div class="lg:grid grid-cols-2 text-gray-700">
+                <div class=" hidden lg:block bg-register bg-cover relative">
+                    <div class=" bg-black opacity-40 absolute top-0 left-0 w-full h-full"></div>
+                    <div class=" relative m-5">
+                        <a href="https://voyawealthmanagement.com">
+                            <img src="/logo.svg" width="150" alt="">
+                        </a>
+                    </div>
+                    <div class=" flex items-center justify-center h-full text-white">
+                        <div class=" flex flex-col items-center">
+
+                            <div class=" p-10">
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="">
+                    <div class="min-h-screen flex flex-col p-3 justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+                        <div>
+
+                        </div>
+
+                        <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+                            <div class="">
+                                <h5 class=" text-2xl font-bold">Sign up to <span class=" text-primary">Voya
+                                        Wealth Management</span></h5>
+
+                            </div>
+
+                            <ul>
+                                <% if(typeof errors != 'undefined') {%> <% errors.forEach(error=>{%>
+                                    <li><%= error.message %></li>
+                                    <%})%> <% } %>
+                            </ul>
+
+
+                            <form action="/register" method="POST" id="register">
+                                <fieldset class="">
+                                    <div class="mt-">
+                                        <label class="block font-medium text-sm text-gray-700 dark:text-light"
+                                            for="first_name">
+                                            First Name
+                                        </label>
+                                        <input
+                                            class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+                                            id="first_name" type="text" name="first_name" required="required"
+                                            autofocus="autofocus" autocomplete="first_name">
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <label class="block font-medium text-sm text-gray-700 dark:text-light"
+                                            for="last_name">
+                                            Last Name
+                                        </label>
+                                        <input
+                                            class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+                                            id="last_name" type="text" name="last_name" required="required"
+                                            autocomplete="last_name">
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <label class="block font-medium text-sm text-gray-700 dark:text-light"
+                                            for="email">
+                                            Email
+                                        </label>
+                                        <input
+                                            class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+                                            id="email" type="email" name="email" required="required">
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <label class="block font-medium text-sm text-gray-700 dark:text-light"
+                                            for="password">
+                                            Password
+                                        </label>
+                                        <input
+                                            class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+                                            id="password" type="password" name="password" required="required"
+                                            autocomplete="new-password">
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <label class="block font-medium text-sm text-gray-700 dark:text-light"
+                                            for="password_confirmation">
+                                            Confirm Password
+                                        </label>
+                                        <input
+                                            class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+                                            id="password_confirmation" type="password" name="password_confirmation"
+                                            required="required" autocomplete="new-password">
+                                    </div>
+
+                                    <div class="flex items-center justify-end mt-4">
+                                        <a class="underline text-sm text-gray-600 hover:text-gray-900"
+                                            href="/login">
+                                            Already registered?
+                                        </a>
+
+
+                                        <button type="button"
+                                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition ml-4 next">
+                                            Next
+                                        </button>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="">
+
+
+                                    <div class="mt-4">
+
+                                        <label for="age"
+                                            class="block font-medium text-sm text-gray-700 dar:text-gray-500">Age
+                                            Range</label>
+                                        <select name="age" id="age"
+                                            class="w-full px-4 py-2 border dar:border-gray-700 focus:outline-none dar:focus:ring-primary-darker  border-gray-300 focus:border-indigo-300 dar:bg-dark dar:text-gray-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                            <option value="">select an option</option>
+                                            <option value="18 - 25">18 - 25</option>
+                                            <option value="26 - 45">26 - 45</option>
+                                            <option value="45+">45+</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mt-4">
+
+                                        <label for="us_investor"
+                                            class="block font-medium text-sm text-gray-700 dar:text-gray-500">Are you a
+                                            US Investor?</label>
+                                        <select name="us_investor" id="us_investor"
+                                            class="w-full px-4 py-2 border dar:border-gray-700 focus:outline-none dar:focus:ring-primary-darker  border-gray-300 focus:border-indigo-300 dar:bg-dark dar:text-gray-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                            <option value="">select an option</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mt-4">
+
+                                        <label for="investor_type"
+                                            class="block font-medium text-sm text-gray-700 dar:text-gray-500">Investor
+                                            Type</label>
+                                        <select name="investor_type" id="investor_type"
+                                            class="w-full px-4 py-2 border dar:border-gray-700 focus:outline-none dar:focus:ring-primary-darker  border-gray-300 focus:border-indigo-300 dar:bg-dark dar:text-gray-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                            <option value="">select an option</option>
+                                            <option value="Family Office">Family Office</option>
+                                            <option value="High Net-Worth Individual">High Net Worth Individual</option>
+                                            <option value="Registered Investment Advisor">Registered Investment Advisor
+                                            </option>
+                                            <option value="Hedge/Venture Fund">Hedge/Venture Fund</option>
+                                            <option value="Pension Fund">Pension Fund</option>
+                                            <option value="Other Institutional Investors">Other Institutional Investors
+                                            </option>
+                                            <option value="26 - 45">26 - 45</option>
+                                            <option value="45+">45+</option>
+                                        </select>
+                                    </div>
+
+
+                                    <div class="flex items-center justify-end mt-4">
+                                        <button type="button"
+                                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition ml-4 previous">
+                                            Previous
+                                        </button>
+
+                                        <button type="button"
+                                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition ml-4 next">
+                                            Next
+                                        </button>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="">
+
+                                    <div class="mt-4">
+                                        <label for="account_type"
+                                            class="block font-medium text-sm text-gray-700 dar:text-gray-500">Account
+                                            Type</label>
+                                        <select name="account_type" id="account_type"
+                                            class="w-full px-4 py-2 border dar:border-gray-700 focus:outline-none dar:focus:ring-primary-darker  border-gray-300 focus:border-indigo-300 dar:bg-dark dar:text-gray-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                            <option value="">select an account type</option>
+                                            <option value="mutual">Mutual Funds</option>
+                                            <option value="crypto">Investment</option>
+                                            <option value="retirement">Retirement Income</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mt-4">
+
+                                        <label for="investor_status"
+                                            class="block font-medium text-sm text-gray-700 dar:text-gray-500">Accredited
+                                            Investor
+                                            Status</label>
+                                        <select name="investor_status" id="accredited"
+                                            class="w-full px-4 py-2 border dar:border-gray-700 focus:outline-none dar:focus:ring-primary-darker  border-gray-300 focus:border-indigo-300 dar:bg-dark dar:text-gray-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                            <option value="">Select an investor status</option>
+                                            <option value="Non-Accredited">Non-Accredited</option>
+                                            <option value="Accredited Investor($1m + networth)">Accredited Investor($1m
+                                                + networth)
+                                            </option>
+                                            <option value="Qualified Client($2.1m + networth)">Qualified Client($2.1m +
+                                                networth)
+                                            </option>
+                                            <option value="Qualified Purchaser(5m + networth)">Qualified Purchaser(5m +
+                                                networth)
+                                            </option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mt-4">
+
+                                        <label for="hear_about"
+                                            class="block font-medium text-sm text-gray-700 dar:text-gray-500">How did
+                                            you hear about us?</label>
+                                        <select name="hear_about" id="hear_about"
+                                            class="w-full px-4 py-2 border dar:border-gray-700 focus:outline-none dar:focus:ring-primary-darker  border-gray-300 focus:border-indigo-300 dar:bg-dark dar:text-gray-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                            <option value="">Select an option</option>
+                                            <option value="Online Research">Online Research</option>
+                                            <option value="Voya Wealth Management Partner">Voya Wealth Management
+                                                Partner
+                                            </option>
+                                            <option value="External Referral">External Referral</option>
+                                            <option value="Conference/Event">Conference/Event</option>
+                                            <option value="Press">Press</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mt-4">
+
+                                        <label for="capital"
+                                            class="block font-medium text-sm text-gray-700 dar:text-gray-500">
+                                            How much
+                                            capital are you willing to invest</label>
+                                        <select name="capital" id="capital"
+                                            class="w-full px-4 py-2 border dar:border-gray-700 focus:outline-none dar:focus:ring-primary-darker  border-gray-300 focus:border-indigo-300 dar:bg-dark dar:text-gray-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                            <option value="">select an option</option>
+                                            <option value="$100,000 - $199,000">$100,000 - $199,000</option>
+                                            <option value="$200,000 - $499,000">$200,000 - $499,000</option>
+                                            <option value="$500,000 - $999,000">$500,000 - $999,000</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="flex items-center justify-end mt-4">
+                                        <button type="button"
+                                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition ml-4 previous">
+                                            Previous
+                                        </button>
+
+                                        <button type="button"
+                                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition ml-4 next">
+                                            Next
+                                        </button>
+                                    </div>
+                                </fieldset>
+
+                                <fieldset class="">
+
+                                    <div class="mt-4">
+
+                                        <label for="funds_type"
+                                            class="block font-medium text-sm text-gray-700 dar:text-gray-500">Which
+                                            Funds are you interested in?</label>
+                                        <select name="funds_type" id="funds_type"
+                                            class="w-full px-4 py-2 border dar:border-gray-700 focus:outline-none dar:focus:ring-primary-darker  border-gray-300 focus:border-indigo-300 dar:bg-dark dar:text-gray-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm">
+                                            <option value="">Select a fund</option>
+                                            <option value="Family Office">Family Office</option>
+                                            <option value="High Net-Worth Individual">High Net-Worth Individual</option>
+                                            <option value="Registered Investment Advisor">Registered Investment Advisor
+                                            </option>
+                                            <option value="Hedge/Venture Fund">Hedge/Venture Fund</option>
+                                            <option value="Hedge/Venture Fund">Pension Fund</option>
+                                            <option value="Hedge/Venture Fund">Other Institutional Investor</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <label class="block font-medium text-sm text-gray-700 dark:text-light"
+                                            for="love_to_know">
+                                            Tell us what you would love to know
+                                        </label>
+                                        <input
+                                            class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+                                            id="love_to_know" type="text" name="love_to_know" autocomplete="lovetoknow">
+                                    </div>
+
+                                    <div class="mt-4">
+                                        <label class="block font-medium text-sm text-gray-700 dark:text-light"
+                                            for="bitcoin_address">
+                                            Enter your Bitcoin Address
+                                        </label>
+                                        <input
+                                            class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full"
+                                            id="bitcoin" type="text" name="bitcoin_address" required="required"
+                                            autocomplete="bitcoin">
+                                    </div>
+
+
+
+
+                                    <div class="flex items-center justify-end mt-4">
+                                        <button type="button"
+                                            class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:ring focus:ring-blue-200 active:text-gray-800 active:bg-gray-50 disabled:opacity-25 transition ml-4 previous">
+                                            Previous
+                                        </button>
+
+                                        <button type="submit" value="Register"
+                                            class="inline-flex items-center px-4 py-2 bg-gray-800 dark:bg-darklight border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 active:bg-gray-900 focus:outline-none focus:border-gray-900 focus:ring focus:ring-gray-300 disabled:opacity-25 transition ml-4">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </fieldset>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+
+
+    </script>
+
+
+</body>
+
+</html>

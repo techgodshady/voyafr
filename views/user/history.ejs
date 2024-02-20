@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title> Voya Wealth Management - User Dashboard </title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="/Build/assets/css/app.min.css">
+    <link rel="stylesheet" href="/Build/assets/bundles/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="/Build/assets/bundles/weather-icon/css/weather-icons.min.css">
+    <link rel="stylesheet" href="/Build/assets/bundles/weather-icon/css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="/Build/assets/bundles/summernote/summernote-bs4.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/Build/assets/css/style.css">
+    <link rel="stylesheet" href="/Build/assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="/Build/assets/css/custom.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/Build/assets/img/favicon.png' />
+</head>
+
+<body>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <div class="form-inline me-auto">
+
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-bs-toggle="sidebar" class="nav-link nav-link-lg
+              collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                                <i data-feather="maximize"></i>
+                            </a></li>
+                        <li>
+                            <form class="form-inline me-auto">
+                                <div class="search-element d-flex">
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+
+
+
+
+
+
+                    <li class="dropdown"><a href="#" data-bs-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
+                                src="/Build/assets/img/profile.png" class="user-img-radious-style"> <span
+                                class="d-sm-none d-lg-inline-block"></span></a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                            <div class="dropdown-title">Hello <%= user %></div>
+                            <a href="/user/manager" class="dropdown-item has-icon"> <i class="far fa-user"></i>Account
+                                Managers</a>
+                            <a href="/user/profile" class="dropdown-item has-icon"> <i class="far fa-user"></i> Manage
+                                Profile</a>
+
+                            <a href="/user/password" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
+                                Manage Password
+                            </a>
+                            <!-- 
+      <a href="/user/manager" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>Account Managers </a> -->
+                            <a href="/user/referral" class="dropdown-item has-icon"> <i class="fas fa-users"></i>My
+                                Referrals </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="/user/logout" class="dropdown-item has-icon text-danger"> <i
+                                    class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+
+
+
+                </ul>
+            </nav>
+            <div class="main-sidebar sidebar-style-2">
+                <aside id="sidebar-wrapper">
+
+                    <div class="sidebar-user">
+                        <div class="sidebar-user-details">
+                            <div class="user-name"><i class="fa fa-home fa-2x" class="bg-primary"></i> Hello! <%= user %>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Main</li>
+
+
+                        <li class="dropdown active">
+                            <a href="/user/dashboard" class="nav-link">
+                                <i class="fas fa-home"></i><span>Dashboard</span></a>
+                        </li>
+
+                        <li><a class="nav-link" href="/user/market"><i class="fas fa-sliders-h"></i><span>Market
+                                    Chart</span></a></li>
+
+
+
+
+                        <li><a class="nav-link" href="/user/my-investment"><i
+                                    class="fas fa-hand-holding-usd"></i><span>My Investment</span></a></li>
+
+                        <li><a class="nav-link" href="/user/invest"><i
+                                    class="fas fa-money-bill-alt"></i><span>Invest</span></a></li>
+
+                        <li><a class="nav-link" href="/user/reinvest"><i
+                                    class="fas fa-money-bill"></i><span>Reinvest</span></a></li>
+
+
+                        <li><a class="nav-link" href="/user/transfer"><i class="fas fa-exchange-alt"></i><span>Fund
+                                    Transfer</span></a></li>
+
+
+                        <li><a class="nav-link" href="/user/withdraw"><i
+                                    class="fas fa-hand-holding-usd"></i><span>Request Withdrawal</span></a></li>
+
+                        <li><a class="nav-link" href="/user/profile"><i
+                                    class="fas fa-user-shield"></i><span>Profile</span></a></li>
+                        <li><a class="nav-link" href="/user/history"><i class="fas fa-receipt"></i><span>Transacton
+                                    History</span></a></li>
+                        <li><a class="nav-link" href="/user/logout"><i
+                                    class="fas fa-power-off"></i><span>Logout</span></a></li>
+
+
+
+                    </ul>
+
+
+
+                </aside>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+                    <div class="modal-body" id="pageBody">
+                        <div class="col-12 ">
+                            <div class=" table-responsive">
+                                <table class="table table-light align-items-center" style="min-width: 1000px;">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Transaction</th>
+                                            <th scope="col">Invoice</th>
+                                            <th scope="col" class="sort">Kind</th>
+                                            <th scope="col" class="sort">Wallet</th>
+                                            <th scope="col" class="sort">Amount</th>
+                                            <th scope="col" class="sort">Action</th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                </section>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+            <footer class="main-footer">
+                <div class="footer-left">
+                    © 2024 Voya Wealth Management. All rights reserved.
+                </div>
+                <div class="footer-right">
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="/Build/assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="/Build/assets/bundles/echart/echarts.js"></script>
+    <script src="/Build/assets/bundles/chartjs/chart.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="/Build/assets/js/page/index.js"></script>
+    <!-- Template JS File -->
+    <script src="/Build/assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="/Build/assets/js/custom.js"></script>
+</body>
+
+</html>

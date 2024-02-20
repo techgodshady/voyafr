@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+    <title> Voya Wealth Management - User Dashboard </title>
+    <!-- General CSS Files -->
+    <link rel="stylesheet" href="/Build/assets/css/app.min.css">
+    <link rel="stylesheet" href="/Build/assets/bundles/jqvmap/dist/jqvmap.min.css">
+    <link rel="stylesheet" href="/Build/assets/bundles/weather-icon/css/weather-icons.min.css">
+    <link rel="stylesheet" href="/Build/assets/bundles/weather-icon/css/weather-icons-wind.min.css">
+    <link rel="stylesheet" href="/Build/assets/bundles/summernote/summernote-bs4.css">
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/Build/assets/css/style.css">
+    <link rel="stylesheet" href="/Build/assets/css/components.css">
+    <!-- Custom style CSS -->
+    <link rel="stylesheet" href="/Build/assets/css/custom.css">
+    <link rel='shortcut icon' type='image/x-icon' href='/Build/assets/img/favicon.png' />
+</head>
+
+<body>
+    <div id="app">
+        <div class="main-wrapper main-wrapper-1">
+            
+            <div class="navbar-bg"></div>
+            <nav class="navbar navbar-expand-lg main-navbar">
+                <div class="form-inline me-auto">
+
+                    <ul class="navbar-nav mr-3">
+                        <li><a href="#" data-bs-toggle="sidebar" class="nav-link nav-link-lg
+              collapse-btn"> <i data-feather="align-justify"></i></a></li>
+                        <li><a href="#" class="nav-link nav-link-lg fullscreen-btn">
+                                <i data-feather="maximize"></i>
+                            </a></li>
+                        <li>
+                            <form class="form-inline me-auto">
+                                <div class="search-element d-flex">
+                                    <input class="form-control" type="search" placeholder="Search" aria-label="Search">
+                                    <button class="btn" type="submit">
+                                        <i class="fas fa-search"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="navbar-nav navbar-right">
+
+
+
+
+
+
+                    <li class="dropdown"><a href="#" data-bs-toggle="dropdown"
+                            class="nav-link dropdown-toggle nav-link-lg nav-link-user"> <img alt="image"
+                                src="/Build/assets/img/profile.png" class="user-img-radious-style"> <span
+                                class="d-sm-none d-lg-inline-block"></span></a>
+                        <div class="dropdown-menu dropdown-menu-right pullDown">
+                            <div class="dropdown-title">Hello <%= user %></div>
+                            <a href="/user/manager" class="dropdown-item has-icon"> <i class="far fa-user"></i>Account
+                                Managers</a>
+                            <a href="/user/profile" class="dropdown-item has-icon"> <i class="far fa-user"></i> Manage
+                                Profile</a>
+
+                            <a href="/user/password" class="dropdown-item has-icon"> <i class="fas fa-bolt"></i>
+                                Manage Password
+                            </a>
+                            <!-- 
+      <a href="/user/manager" class="dropdown-item has-icon"> <i class="fas fa-cog"></i>Account Managers </a> -->
+                            <a href="/user/referral" class="dropdown-item has-icon"> <i class="fas fa-users"></i>My
+                                Referrals </a>
+                            <div class="dropdown-divider"></div>
+                            <a href="/user/logout" class="dropdown-item has-icon text-danger"> <i
+                                    class="fas fa-sign-out-alt"></i>
+                                Logout
+                            </a>
+                        </div>
+                    </li>
+
+
+
+
+                </ul>
+            </nav>
+            <div class="main-sidebar sidebar-style-2">
+                <aside id="sidebar-wrapper">
+
+                    <div class="sidebar-user">
+                        <div class="sidebar-user-details">
+                            <div class="user-name"><i class="fa fa-home fa-2x" class="bg-primary"></i> Hello! <%= user %>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+                    <ul class="sidebar-menu">
+                        <li class="menu-header">Main</li>
+
+
+                        <li class="dropdown active">
+                            <a href="/user/dashboard" class="nav-link">
+                                <i class="fas fa-home"></i><span>Dashboard</span></a>
+                        </li>
+
+                        <li><a class="nav-link" href="/user/market"><i class="fas fa-sliders-h"></i><span>Market
+                                    Chart</span></a></li>
+
+
+
+                        <li><a class="nav-link" href="/user/my-investment"><i
+                                    class="fas fa-hand-holding-usd"></i><span>My Investment</span></a></li>
+
+                        <li><a class="nav-link" href="/user/invest"><i
+                                    class="fas fa-money-bill-alt"></i><span>Invest</span></a></li>
+
+                        <li><a class="nav-link" href="/user/reinvest"><i
+                                    class="fas fa-money-bill"></i><span>Reinvest</span></a></li>
+
+
+                        <li><a class="nav-link" href="/user/transfer"><i class="fas fa-exchange-alt"></i><span>Fund
+                                    Transfer</span></a></li>
+
+
+                        <li><a class="nav-link" href="/user/withdraw"><i
+                                    class="fas fa-hand-holding-usd"></i><span>Request Withdrawal</span></a></li>
+
+                        <li><a class="nav-link" href="/user/profile"><i
+                                    class="fas fa-user-shield"></i><span>Profile</span></a></li>
+                        <li><a class="nav-link" href="/user/history"><i class="fas fa-receipt"></i><span>Transacton
+                                    History</span></a></li>
+                        <li><a class="nav-link" href="/user/logout"><i
+                                    class="fas fa-power-off"></i><span>Logout</span></a></li>
+
+
+
+                    </ul>
+
+
+
+                </aside>
+            </div>
+
+            
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <section class="section">
+
+
+                    <div class="modal-body" id="pageBody">
+                        <div class="container">
+                            <div class="row row-grid">
+
+                                <div class="col-lg-8 order-lg-2">
+                                    <!-- Attach a new card -->
+                                    <div>
+
+                                        <form role="form" method="POST" action="amount.php">
+                                            <div class="card">
+                                                <div class="card-header">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            <span class="h6" id="depositTitle">Reinvest Funds</span>
+                                                            <p class="text-muted text-sm mt-2 mb-0 d-none d-lg-block">
+                                                                You can request a reinvestment of your available balance
+                                                                by filling the reinvestment form below. Funds will be
+                                                                reinvested automatically</p>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="card-body">
+
+
+                                                    <div class="alert" id="withdrawalAlert"></div>
+
+                                                    <input name="withdraw" type="hidden" value="main">
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <div class="form-group">
+                                                                <label class="form-control-label">Current Investment
+                                                                    Type</label>
+                                                                <input class="form-control" name="type" value=""
+                                                                    type="text" readonly="">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row mt-3">
+                                                        <div class="col-md-12">
+                                                            <label class="form-control-label">Choose Coin </label>
+                                                            <div class="form-group">
+                                                                <select class="form-control" required=""
+                                                                    id="accounttype" name="coin">
+                                                                    <option value="" disabled="" selected="">Select Coin
+                                                                    </option>
+
+                                                                    <option value="Bitcoin">Bitcoin</option>
+                                                                    <option value="Usdt">Usdt</option>
+                                                                    <option value="Ethereum">Ethereum</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+
+                                                            <div class="form-group">
+                                                                <label class="form-control-label">Reinvestment
+                                                                    Package</label>
+                                                                <select class="form-control form-control-rounded"
+                                                                    name="package" id="withdrawalWallet" required="">
+                                                                    <option value="">Select Plan</option>
+                                                                    <option value="Basic">Basic</option>
+                                                                    <option value="Premium">Premium</option>
+                                                                    <option value="Gold">Gold</option>
+                                                                    <option value="Standard">Standard</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="text-right">
+
+                                                        <button type="submit" class="btn btn-sm btn-info"
+                                                            id="withdraw_btn">Reinvest Funds</button>
+
+                                                    </div>
+
+                                                    <div class="text-center text-danger" id="warns">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <!-- Add money using PayPal -->
+
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 order-lg-1">
+                                    <div data-toggle="sticky" data-sticky-offset="30"
+                                        data-negative-margin=".card-profile-cover" style=" padding-top: 50px; ">
+                                        <div class="card l-bg-cyan-dark">
+                                            <div class="card-statistic-3">
+                                                <div class="card-icon card-icon-large"><i class="fa fa-briefcase"></i>
+                                                </div>
+                                                <div class="card-content">
+                                                    <h4 class="card-title">Available Balance</h4>
+                                                    <span>$ 0.00</span>
+                                                    <div class="progress mt-1 mb-1" data-height="8">
+
+                                                    </div>
+                                                    <p class="mb-0 text-sm">
+                                                        <span class="mr-2"><i class="fa fa-arrow-right"></i> </span>
+                                                        <span class="text-nowrap">Your withdrawable balance</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+
+
+                                        <div class="card l-bg-green-dark">
+                                            <div class="card-statistic-3">
+                                                <div class="card-icon card-icon-large"><i class="fa fa-award"></i></div>
+                                                <div class="card-content">
+                                                    <h4 class="card-title">Active Investment</h4>
+                                                    <span>$ 0.00</span>
+                                                    <div class="progress mt-1 mb-1" data-height="8">
+
+                                                    </div>
+                                                    <p class="mb-0 text-sm">
+                                                        <span class="mr-2"><i class="fa fa-arrow-right"></i> </span>
+                                                        <span class="text-nowrap">Your currently running
+                                                            investment</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="card l-bg-purple-dark">
+                                            <div class="card-statistic-3">
+                                                <div class="card-icon card-icon-large"><i class="fa fa-globe"></i></div>
+                                                <div class="card-content">
+                                                    <h4 class="card-title">Total Withdrawal</h4>
+                                                    <span>$ 0.00</span>
+                                                    <div class="progress mt-1 mb-1" data-height="8">
+
+                                                    </div>
+                                                    <p class="mb-0 text-sm">
+                                                        <span class="mr-2"><i class="fa fa-arrow-right"></i> </span>
+                                                        <span class="text-nowrap">Total withdrawn amount</span>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </section>
+
+
+
+
+                <div class="modal-body" id="pageBody">
+                    <div class="col-12 ">
+                        <div class=" table-responsive">
+                            <table class="table table-light align-items-center" style="min-width: 1000px;">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">S/N</th>
+                                        <th scope="col">Plan</th>
+                                        <th scope="col">Amount</th>
+                                        <th scope="col" class="sort">Payment <br> Method</th>
+                                        <th scope="col" class="sort">Action</th>
+                                        <th scope="col" class="sort">Status</th>
+                                        <th scope="col" class="sort">Date</th>
+                                        <th scope="col"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+
+
+
+                                    <tr>
+
+                                        <td>
+                                            <span class="client">1</span>
+                                        </td>
+                                        <th scope="row">
+                                            <button type="button" class="btn btn-sm btn-primary btn-icon rounded-pill">
+                                                <span class="btn-inner--text">Premium Plan</span>
+                                            </button>
+                                        </th>
+                                        <td class="order">
+                                            <span class="h6 text-sm mb-0">$78</span>
+                                        </td>
+                                        <td>
+                                            <span class="client">Usdt</span>
+                                        </td>
+
+
+                                        <td>
+                                            <span class="client"><a href="/user/paymen.php?order_id=105">PAY NOW</a></span>
+                                        </td>
+
+
+                                        <td>
+                                            <div class="badge badge-danger badge-shadow">PENDING</div>
+                                        </td>
+                                        <td>
+                                            <span class="client">2024-01-11 03:21:46</span>
+                                        </td>
+
+                                    </tr>
+                                    <tr class="table-divider"></tr>
+
+
+
+
+
+
+
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+            </div>
+
+            <footer class="main-footer">
+                <div class="footer-left">
+                    © 2024 Voya Wealth Management. All rights reserved.
+                </div>
+                <div class="footer-right">
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!-- General JS Scripts -->
+    <script src="/Build/assets/js/app.min.js"></script>
+    <!-- JS Libraies -->
+    <script src="/Build/assets/bundles/echart/echarts.js"></script>
+    <script src="/Build/assets/bundles/chartjs/chart.min.js"></script>
+    <!-- Page Specific JS File -->
+    <script src="/Build/assets/js/page/index.js"></script>
+    <!-- Template JS File -->
+    <script src="/Build/assets/js/scripts.js"></script>
+    <!-- Custom JS File -->
+    <script src="/Build/assets/js/custom.js"></script>
+</body>
+
+</html>

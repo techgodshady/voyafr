@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="SKDIqoJtqKLDgpsji4PHcPE4a3GGSzdoeRDdwwxM">
+
+        <title>Log In | Voya Wealth Management</title>
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
+
+        <!-- Scripts -->
+        <link rel="preload" as="style" href="/assets/css/auth-e6a631a1.css" /><link rel="modulepreload" href="/assets/js/auth-83ce8ed7.js" /><link rel="stylesheet" href="/assets/css/auth-e6a631a1.css" />        
+    </head>
+    <body class="font-gilroy antialiased">
+        <div class="preloader" id="preloader">
+            <div class="gooey">
+                <span class="dot"></span>
+                <div class="dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+        
+        <div x-data="{&quot;show&quot;:true,&quot;style&quot;:&quot;success&quot;,&quot;message&quot;:null}"
+            :class="{ 'bg-indigo-500': style == 'success', 'bg-red-700': style == 'danger', 'bg-gray-500': style != 'success' && style != 'danger' }"
+            style="display: none;"
+            x-show="show && message"
+            x-init="
+                document.addEventListener('banner-message', event => {
+                    style = event.detail.style;
+                    message = event.detail.message;
+                    show = true;
+                });
+            ">
+    <div class="max-w-screen-xl mx-auto py-2 px-3 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between flex-wrap">
+            <div class="w-0 flex-1 flex items-center min-w-0">
+                <span class="flex p-2 rounded-lg" :class="{ 'bg-indigo-600': style == 'success', 'bg-red-600': style == 'danger' }">
+                    <svg x-show="style == 'success'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <svg x-show="style == 'danger'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <svg x-show="style != 'success' && style != 'danger'" class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </span>
+
+                <p class="ml-3 font-medium text-sm text-white truncate" x-text="message"></p>
+            </div>
+
+            <div class="shrink-0 sm:ml-3">
+                <button
+                    type="button"
+                    class="-mr-1 flex p-2 rounded-md focus:outline-none sm:-mr-2 transition"
+                    :class="{ 'hover:bg-indigo-600 focus:bg-indigo-600': style == 'success', 'hover:bg-red-600 focus:bg-red-600': style == 'danger' }"
+                    aria-label="Dismiss"
+                    x-on:click="show = false">
+                    <svg class="h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <div class="min-h-screen overflow-hidden bg-gray-100">
+            <main>
+                <div class="lg:grid grid-cols-2">
+
+        <div class=" hidden lg:block bg-auth bg-cover relative">
+            <div class=" bg-black opacity-40 absolute top-0 left-0 w-full h-full"></div>
+            <div class=" relative m-5">
+                <a href="https://voyawealthmanagement.com">
+                    <img src="/assets/images/logo.svg" alt="">
+                </a>
+            </div>
+            <div class=" flex items-center justify-center h-full text-white">
+                <div class=" flex flex-col items-center">
+                    
+                    <div class=" p-10">
+                        
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="">
+            <div class="min-h-screen flex flex-col p-3 justify-center items-center pt-6 sm:pt-0 bg-gray-100">
+    <div>
+        
+    </div>
+
+
+    <div class="w-full sm:max-w-md mt-6 px-6 py-4 bg-white shadow-md overflow-hidden sm:rounded-lg">
+        <div class=" mb-7">
+                    <h5 class=" text-2xl font-bold">Login</h5>
+                    <p class=" text-gray-500 mt-2">Welcome back, please enter your details.</p>
+                </div>
+
+                <ul>
+                    <% if(messages.success_msg) { %>
+                        <li><%= messages.success_msg %></li>
+                    <% } %>
+                </ul>
+
+                
+                <ul>
+                    <% if(typeof errors != 'undefined') {%> <% errors.forEach(error=>{%>
+                        <li><%= error.message %></li>
+                        <%})%> <% } %>
+                </ul>
+
+                
+    <ul>
+        <% if (messages.error) { %>
+        <li><%= messages.error %></li>
+        <% } %>
+      </ul>
+  
+
+                
+                
+                <form method="POST" action="/login">
+                    <div>
+                        <label class="block font-medium text-sm text-gray-700 dark:text-light" for="email">
+    Email
+</label>
+                        <input  class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" id="email" type="email" name="email" required="required" autofocus="autofocus">
+                    </div>
+
+                    <div class="mt-4">
+                        <label class="block font-medium text-sm text-gray-700 dark:text-light" for="password">
+    Password
+</label>
+                        <input  class="border-gray-300 dark:bg-darklight dark:border-darklighter focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50 rounded-md shadow-sm block mt-1 w-full" id="password" type="password" name="password" required="required" autocomplete="current-password">
+                    </div>
+
+                    <div class="flex items-center justify-between mt-4">
+                        <label for="remember_me" class="flex items-center">
+                            <input type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" id="remember_me" name="remember">
+                            <span class="ml-2 text-sm text-gray-600">Remember me</span>
+                        </label>
+
+                                                    <a class="underline text-sm text-gray-600 hover:text-gray-900"
+                                href="/forgot-password">
+                                Forgot your password?
+                            </a>
+                                            </div>
+
+                    <div class=" mt-10">
+                        <input
+                            class=" block text-center bg-primary text-white rounded-sm px-5 py-2 font-semibold tracking-wider w-full"
+                            type="submit" value="Login"
+                            Login
+                        />
+                    </div>
+
+                    <div class=" mt-10">
+                        <h5 class=" text-sm text-center">Don't have an account? <a href="/register"
+                                class=" font-semibold text-primary">Sign up</a></h5>
+                    </div>
+                </form>
+    </div>
+</div>
+        </div>
+    </div>
+            </main>
+        </div>
+        </body>
+</html>
